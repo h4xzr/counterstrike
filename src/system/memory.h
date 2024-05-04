@@ -4,30 +4,56 @@
 
 class weapon {
   public:
-    weapon(int inaccuracy, int ammunition, int damage, int recoil_amount, int recoil_variance, int recoil_angle_variance, int smoothness = 0);
-}
+    weapon(float inaccuracy, float ammunition, float damage, float recoil_amount, float recoil_variance, float recoil_angle_variance);
+    float _inaccuracy;
+    float _ammunition;
+    float _damage;
+    float _recoil_amount;
+    float _recoil_variance;
+    float _recoil_angle_variance;
+};
 
-weapon::weapon(int inaccuracy, int ammunition, int damage, int recoil_amount, int recoil_variance, int recoil_angle_variance, int smoothness = 0) {
-  this->damage = this->damage / this->ammunition;
-  this->smoothness = recoil_amount / recoil_angle_variance;
+weapon::weapon(float inaccuracy, float ammunition, float damage, float recoil_amount, float recoil_variance, float recoil_angle_variance) {
+  _inaccuracy = inaccuracy;
+  _ammunition = ammunition;
+  _damage = damage;
+  _recoil_amount = recoil_amount;
+  _recoil_variance = recoil_variance;
+  _recoil_angle_variance = recoil_angle_variance;
 }
 
 // Player
 
 class player {
   public:
-    player(int position_x, int position_y, int position_z, int team = 0, bool visible = false);
-}
+    player(float position_x, float position_y, float position_z, int team, bool visible);
+    float _position_x;
+    float _position_y;
+    float _position_z;
+    int _team;
+    bool _visible;
+};
 
-player::player(int position_x, int position_y, int position_z, int team = 0, bool visible = false) {
+player::player(float position_x, float position_y, float position_z, int team, bool visible) {
+  _position_x = position_x;
+  _position_y = position_y;
+  _position_z = position_z;
+  _team = team;
+  _visible = visible;
 }
 
 // Map
 
 class map {
   public:
-    map(int position_marks_x, int position_marks_y, int position_marks_z);
-}
+    map(float position_marks_x, float position_marks_y, float position_marks_z);
+    float _position_marks_x;
+    float _position_marks_y;
+    float _position_marks_z;
+};
 
-map::map(int position_marks_x, int position_marks_y, int position_marks_z) {
+map::map(float position_marks_x, float position_marks_y, float position_marks_z) {
+  _position_marks_x = position_marks_x;
+  _position_marks_y = position_marks_y;
+  _position_marks_z = position_marks_z;
 }
